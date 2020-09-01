@@ -73,7 +73,12 @@ function M.on_input(self, action_id, action)
 		if self.picked_node == self.wheel_control then
 			local current = gui.get_position(self.wheel_control)
 			local p = vmath.vector3(max(-WHEEL_DIAMETER/2, min(current.x + action.dx, WHEEL_DIAMETER/2)), max(-WHEEL_DIAMETER/2, min(current.y + action.dy, WHEEL_DIAMETER/2)), 0)
-			gui.set_position(self.wheel_control, p)
+			if vmath.length(p) < WHEEL_DIAMETER/2 then
+				gui.set_position(self.wheel_control, p)
+			else
+				local p_n = vmath.normalize(p) * WHEEL_DIAMETER/2
+				gui.set_position(self.wheel_control, p_n)
+			end
 			update_wheel(self)
 			update_output(self)
 		elseif self.picked_node == self.value_control then
@@ -83,11 +88,17 @@ function M.on_input(self, action_id, action)
 			update_value(self)
 			update_output(self)
 		elseif self.picked_node == self.wheel then
+			local old_p = gui.get_position(self.wheel_control)
 			gui.set_parent(self.wheel_control, nil, false)
 			gui.set_position(self.wheel_control, vmath.vector3(action.x, action.y, 0))
 			gui.set_parent(self.wheel_control, self.wheel, true)
-			update_wheel(self)
-			update_output(self)
+			if vmath.length(gui.get_position(self.wheel_control)) <  WHEEL_DIAMETER/2 then
+				update_wheel(self)
+				update_output(self)
+				self.picked_node = self.wheel_control
+			else
+				gui.set_position(self.wheel_control, old_p)
+			end
 		end
 	end
 end
