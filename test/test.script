@@ -6,14 +6,9 @@ local test_math = require "main.test_math"
 local harmony = require "color.harmony"
 local color = require "color.color"
 
-function test()
-	local c = harmony.monochromatic(color.from_hex("#804080"))
-	pprint(c)
-end
-
 function init(self)
 	deftest.add(test_color)
 	deftest.add(test_math)
-	--deftest.run()
+	deftest.run()
 	test()
 end
