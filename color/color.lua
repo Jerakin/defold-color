@@ -1,3 +1,6 @@
+local config = require "color.config"
+config.initialize()
+
 local M = {}
 local normalize_color = function(v) return v/255 end
 
@@ -25,6 +28,10 @@ end
 
 function M.from_rgba(r, g, b, a)
 	return vmath.vector4(r, g, b, a or 1)
+end
+
+function M.random()
+	return vmath.vector4(math.random(), math.random(), math.random(), 1)
 end
 
 function M.from_rgba_255(r, g, b, a)

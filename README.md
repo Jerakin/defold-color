@@ -1,7 +1,6 @@
 # defold-color
-Library to modify, transform and convert colors.
+Library to modify, transform and convert colors. To use defined named colors and paletts, generate random colors and get a random palett.
 
-This project was created from the "empty" project template.
 
 ## Installation
 To use the library in a Defold project this project has to be added as a Defold library dependency. Open the game.project file and in the Dependencies field in the Project section add:

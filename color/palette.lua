@@ -1,4 +1,6 @@
 local color = require "color.color"
+local config = require "color.config"
+config.initialize()
 
 local M = {}
 
