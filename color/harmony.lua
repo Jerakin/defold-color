@@ -22,8 +22,10 @@ function M.monochromatic(start_color, count)
 end
 
 function M.analogous(start_color)
+	local deg = 30
 	local h, s, v = color.to_hsv(start_color)
-	return {color.from_hsv(math.abs(h-30), s, v), color.from_hsv((h+30)%360, s, v)}
+	local h1 = h-30 <= 0 and h+360-deg or h-deg
+	return {color.from_hsv(h1, s, v), color.from_hsv((h+deg)%360, s, v)}
 end
 
 function M.split_complementary(start_color)
