@@ -1,0 +1,11 @@
+images {
+  image: "/example/texture/black_gradient.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
+images {
+  image: "/example/texture/wheel.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
+margin: 0
+extrude_borders: 1
+inner_padding: 0

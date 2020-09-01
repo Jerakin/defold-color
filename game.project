@@ -13,7 +13,7 @@ input_method = HiddenInputField
 
 [project]
 title = defold-color
-dependencies = https://github.com/britzl/deftest/archive/master.zip
+dependencies = https://github.com/britzl/deftest/archive/master.zip,https://github.com/andsve/dirtylarry/archive/master.zip
 
 [library]
 include_dirs = color
