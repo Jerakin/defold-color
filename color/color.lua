@@ -16,18 +16,18 @@ function M.to_hex(color)
 end
 
 function M.from_table(tbl)
-	return M.from_value(tbl[1], tbl[2], tbl[3], tbl[4])
+	return M.from_rgba(tbl[1], tbl[2], tbl[3], tbl[4])
 end
 
 function M.from_table_255(tbl)
-	return M.from_value_255(tbl[1], tbl[2], tbl[3], tbl[4])
+	return M.from_rgba_255(tbl[1], tbl[2], tbl[3], tbl[4])
 end
 
-function M.from_value(r, g, b, a)
+function M.from_rgba(r, g, b, a)
 	return vmath.vector4(r, g, b, a or 1)
 end
 
-function M.from_value_255(r, g, b, a)
+function M.from_rgba_255(r, g, b, a)
 	return vmath.vector4(
 		normalize_color(r),
 		normalize_color(g),

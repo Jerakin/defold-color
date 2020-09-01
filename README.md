@@ -41,8 +41,8 @@ Converts a table of values into a color vector. There is also a `color.from_tabl
 **RETURN**
 * `color` (vmath.vector4)
 
-### **color.from_value(r, g, b, a)**
-Converts the arguments into a color vector. There is also a `color.from_value_255` that assumes values in a 0-255 format.
+### **color.from_rgba(r, g, b, a)**
+Converts the arguments into a color vector. There is also a `color.from_rgba_255` that assumes values in a 0-255 format.
 
 **PARAMETERS**
 * `r` (number) - The red component of the color
