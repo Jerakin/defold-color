@@ -156,3 +156,18 @@ Looks at the color information in each channel and subtracts the blend color to 
 
 **RETURN**
 * `color` (vmath.vector4)
+
+## `palette`
+Contains a few palettes (with made up named), they are between 5 and 10 colors.
+
+### **palette.random()**
+Returns a random palett 
+
+**PARAMETERS**
+*None*
+
+**RETURN**
+* `colors` (table) - Table containing (`vmath.vector4`) colors of the palett.
+
+## `w3c`
+Named web colors.
