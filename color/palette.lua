@@ -36,8 +36,8 @@ M.colors = {
 }
 local _amount_of_colors = 0
 
-local initalized
-if not initalized then
+local initalized = nil
+if initalized == nil then
 	for name, colors in pairs(M.colors) do
 		_amount_of_colors = _amount_of_colors + 1
 		local t = {}
@@ -50,10 +50,11 @@ if not initalized then
 end
 
 ---Add a palette.
+---@param name string Unique name of your palette
 ---@param palette table<integer, vector4>
-function M.add(palette)
+function M.add(name, palette)
 	_amount_of_colors = _amount_of_colors + 1
-	table.insert(M.colors, palette)
+	M.colors[name] = palette
 end
 
 ---Get a random palette.
@@ -61,10 +62,10 @@ end
 function M.random()
 	local r = math.random(1, _amount_of_colors)
 	local i = 0
-	for _, c in pairs(M.colors) do
+	for n, c in pairs(M.colors) do
 		i = i + 1
 		if i == r then
-			return c
+			return c, n
 		end
 	end
 end

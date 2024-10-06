@@ -26,7 +26,8 @@ function M.init(self)
 end
 
 local function random(self)
-	local colors = palette.random()
+	local colors, name = palette.random()
+	gui.set_text(gui.get_node("lbl_palette"), name)
 	for i=1, #self.random_nodes do
 		gui.set_enabled(self.random_nodes[i], false)
 	end

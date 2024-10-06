@@ -1,7 +1,8 @@
 local deftest = require "deftest.deftest"
 
-local test_color = require "main.test_color"
-local test_math = require "main.test_math"
+local test_color = require "test.test_color"
+local test_math = require "test.test_math"
+local test_palette = require "test.test_palette"
 
 local harmony = require "color.harmony"
 local color = require "color.color"
@@ -9,6 +10,7 @@ local color = require "color.color"
 function init(self)
 	deftest.add(test_color)
 	deftest.add(test_math)
+	deftest.add(test_palette)
 	deftest.run()
 	test()
 end

@@ -12,6 +12,8 @@ local M = {}
 
 local update_fncs = {}
 
+M.CURRENT_COLOR = vmath.vector4(0, 0, 0, 1)
+
 function M.init(self)
 	self.wheel_control = gui.get_node("wheel_select")
 	self.value_control = gui.get_node("value_select")
@@ -31,7 +33,9 @@ end
 
 local function update_output(self)
 	-- Update the color
-	gui.set_color(self.output, color.from_hsv(self.hue, self.saturation, self.value))
+	local c = color.from_hsv(self.hue, self.saturation, self.value)
+	gui.set_color(self.output, c)
+	M.CURRENT_COLOR = c
 	for _, fnc in pairs(update_fncs) do
 		fnc(self)
 	end
@@ -55,6 +59,14 @@ local function update_value(self)
 	-- Calculate the value
 	local y = gui.get_position(self.value_control).y
 	self.value = 1 + (y / SATURATION_HEIGHT)
+end
+
+function M.on_message(self, message_id, message)
+	if message_id == hash("update") then
+		update_value(self)
+		update_wheel(self)
+		update_output(self)
+	end
 end
 
 function M.on_input(self, action_id, action)

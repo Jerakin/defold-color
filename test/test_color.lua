@@ -1,4 +1,5 @@
 local color = require "color.color"
+local cmath = require "color.math"
 
 return function()
 	describe("Hex Tests", function()
@@ -71,6 +72,14 @@ return function()
 			assert(h == 240, "blue h, from color to HSV convertion failed")
 			assert(s == 1, "blue s, from color to HSV convertion failed")
 			assert(v == 1, "blue v, from color to HSV convertion failed")
+		end)
+	end)
+	describe("Color shift tests", function()
+		test("rotate color 50% around the color wheel", function()
+			assert(color.shift(vmath.vector4(1, 0, 0, 1), 0.5) == vmath.vector4(0, 1, 1, 1))
+		end)
+		test("rotate color 25% around the color wheel", function()
+			assert(color.shift(vmath.vector4(1, 0, 0, 1), 0.25) == vmath.vector4(0.5, 1, 0, 1))
 		end)
 	end)
 end
