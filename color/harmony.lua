@@ -29,7 +29,7 @@ end
 
 ---An analogous color scheme involves three hues, all of which are positioned next to each other on the color wheel.
 ---@param start_color Vector4 The color you want to generate from.
----@return Vector4[] Array if the two colors that are analogous to the `start_color`.
+---@return Vector4[] Array of the two colors that are analogous to the `start_color`.
 function M.analogous(start_color)
 	local deg = 30
 	local h, s, v = color.to_hsv(start_color)
@@ -49,7 +49,7 @@ end
 
 ---Generate the two colors that are triadic color. Triadic colors are equidistant on the color wheel.
 ---@param start_color Vector4 The color you want to generate from.
----@return Vector4[] Array of the two colors to complement the `start_color` to make a triadic color sheme.
+---@return Vector4[] Array of the two colors to complement the `start_color` to make a triadic color scheme.
 function M.triadic(start_color)
 	local h, s, v = color.to_hsv(start_color)
 	return {
@@ -60,7 +60,7 @@ end
 
 ---A tetrad is four colors, that is, two pairs of complementary combinations.
 ---@param start_color Vector4 The color you want to generate from.
----@return Vector4[] Array of the three colors to complement the starting color to make a tetradic color sheme.
+---@return Vector4[] Array of the three colors to complement the starting color to make a tetradic color scheme.
 function M.tetradic(start_color)
 	local h, s, v = color.to_hsv(start_color)
 	return {
