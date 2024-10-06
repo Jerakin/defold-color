@@ -48,8 +48,16 @@ function M.from_table(tbl)
 	return M.from_rgba(tbl[1], tbl[2], tbl[3], tbl[4])
 end
 
+---Convert a Vector4 to Table.
+---@param color Vector4 Table with 4 entries. Colors are in the 0 to 1 format.
+---@return table<number, number>
+function M.to_table(color)
+	return {color.x, color.y, color.z, color.x}
+end
+
+
 ---Convert a Table to Vector4.
----@param tbl table Table with 4 entries. Colors should be from 0 to 255.
+---@param tbl table Table with 4 entries. Colors are in the 0 to 255 format.
 ---@return Vector4
 function M.from_table_255(tbl)
 	return M.from_rgba_255(tbl[1], tbl[2], tbl[3], tbl[4])

@@ -39,10 +39,20 @@ Converts a color vector into a hex string.
 Converts a table of values into a color vector. There is also a `color.from_table_255` that assumes values in a 0-255 format.
 
 **PARAMETERS**
-* `tbl` (table) - The color in a `{1.0, 1.0, 1.0, 1.0}` format (alpha optional, defualts to 1).
+* `tbl` (table) - The color in a `{1.0, 1.0, 1.0, 1.0}` format (alpha optional, defaults to 1).
 
 **RETURN**
 * `color` (vmath.vector4)
+
+### **color.to_table(color)**
+Transforms the color into a table. There is also a `color.to_table_255` that converts the values into 0-255 values.
+
+**PARAMETERS**
+* `color` (vmath.vector4)
+
+**RETURN**
+* `table` (table) - The color as a table.
+
 
 ### **color.from_rgba(r, g, b, a)**
 Converts the arguments into a color vector. There is also a `color.from_rgba_255` that assumes values in a 0-255 format.
@@ -57,7 +67,7 @@ Converts the arguments into a color vector. There is also a `color.from_rgba_255
 * `color` (vmath.vector4)
 
 ### **color.from_hsv(hue, saturation, value)**
-Converts the a color given in the HSV format into a color vector.
+Converts h, s, v values into color vector.
 
 **PARAMETERS**
 * `hue` (number) - The hue component of the color
@@ -68,7 +78,7 @@ Converts the a color given in the HSV format into a color vector.
 * `color` (vmath.vector4)
 
 ### **color.to_hsv(color)**
-Converts the a color given in the HSV format into a color vector.
+Converts the color to a table of HSV values.
 
 **PARAMETERS**
 * `color` (vmath.vector4)
@@ -77,6 +87,16 @@ Converts the a color given in the HSV format into a color vector.
 * `hue` (number) - The hue component of the color
 * `saturation` (number) - The saturation component of the color
 * `value` (number) - The value component of the color
+
+### **color.shift(color, value)**
+Shift the color along the color wheel.
+
+**PARAMETERS**
+* `color` (vmath.vector4) The starting color to shift.
+* `value` (number) Percental shift (0-1) around the wheel, defaults to a random value of 1 to 2 percent.
+
+**RETURN**
+* `color` (vmath.vector4)
 
 ## `cmath`
 Perform arithmetic and blend modes.
@@ -152,6 +172,47 @@ Looks at the color information in each channel and divides the base color with b
 
 ### **cmath.subtract(base, blend)**
 Looks at the color information in each channel and subtracts the blend color to the base color.
+
+**PARAMETERS**
+* `base` (vmath.vector4) - The base color
+* `blend` (vmath.vector4) - The color that will be used for the blending
+
+**RETURN**
+* `color` (vmath.vector4)
+
+### **cmath.color_dodge(base, blend)**
+Brighter than the Screen blend mode. Results in an intense,
+contrasty color-typically results in saturated mid-tones and blown highlights.
+
+**PARAMETERS**
+* `base` (vmath.vector4) - The base color
+* `blend` (vmath.vector4) - The color that will be used for the blending
+
+**RETURN**
+* `color` (vmath.vector4)
+
+### **cmath.color_burn(base, blend)**
+Darker than Multiply, with more highly saturated mid-tones and reduced highlights.
+
+**PARAMETERS**
+* `base` (vmath.vector4) - The base color
+* `blend` (vmath.vector4) - The color that will be used for the blending
+
+**RETURN**
+* `color` (vmath.vector4)
+
+### **cmath.linear_dodge(base, blend)**
+Brighter than the Color Dodge blend mode, but less saturated and intense. (Same as `cmath.add`)
+
+**PARAMETERS**
+* `base` (vmath.vector4) - The base color
+* `blend` (vmath.vector4) - The color that will be used for the blending
+
+**RETURN**
+* `color` (vmath.vector4)
+
+### **cmath.linear_burn(base, blend)**
+Darker than Multiply, with more highly saturated mid-tones and reduced highlights.
 
 **PARAMETERS**
 * `base` (vmath.vector4) - The base color
