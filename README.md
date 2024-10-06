@@ -313,4 +313,4 @@ Contains a few palettes (with made up named), they are between 5 and 10 colors.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • *None*
 
 ## `w3c`
-> Named web colors.
+[Named web colors.](https://www.w3schools.com/colors/colors_names.asp)
