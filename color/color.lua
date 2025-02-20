@@ -156,7 +156,9 @@ function M.to_hsv(color)
 		return hue, saturation, value
 	end
 
-	if red == max_value then
+	if value_delta == 0 then
+		hue = 0
+	elseif red == max_value then
 		hue = (green - blue) / value_delta
 	elseif green == max_value then
 		hue = 2 + (blue - red) / value_delta
